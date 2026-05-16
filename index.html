@@ -6,7 +6,7 @@
     <title>Лина Лóнская — Астролог, таролог</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,56 +16,66 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            background: #2a1f22;
-            color: #e5d9d5;
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1.8;
+            background: #1a1a1a;
+            color: #c9bfb8;
+            font-family: 'Crimson Text', serif;
+            line-height: 1.9;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-        }
-
         h1 {
-            font-size: 72px;
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
             line-height: 1.1;
-            color: #f5f2ed;
+            color: #e8ddd5;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
         h2 {
-            font-size: 48px;
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
             line-height: 1.2;
-            color: #f5f2ed;
+            color: #e8ddd5;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 50px;
         }
 
         h3 {
-            font-size: 28px;
-            line-height: 1.3;
-            color: #f5f2ed;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #e8ddd5;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
         }
 
         p {
-            font-size: 18px;
-            font-weight: 300;
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.95;
+            color: #c9bfb8;
         }
 
         header {
-            padding: 40px 0;
-            border-bottom: 1px solid #3d2a2d;
+            padding: 30px 0;
+            border-bottom: 1px solid #4a3f37;
             position: sticky;
             top: 0;
-            background: rgba(42, 31, 34, 0.98);
+            background: rgba(26, 26, 26, 0.97);
             backdrop-filter: blur(10px);
             z-index: 1000;
         }
@@ -77,16 +87,28 @@
         }
 
         .logo {
-            font-size: 16px;
-            letter-spacing: 0.1em;
-            font-weight: 300;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.15em;
+            font-weight: 700;
             cursor: pointer;
             transition: color 0.3s;
-            color: #f5f2ed;
+            color: #e8ddd5;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-symbol {
+            font-size: 1.1rem;
+            color: #6b3e47;
+            letter-spacing: 0.1em;
+            line-height: 1;
         }
 
         .logo:hover {
-            color: #c97878;
+            color: #6b3e47;
         }
 
         nav {
@@ -96,140 +118,201 @@
 
         nav a {
             text-decoration: none;
-            color: #b8b0a4;
-            font-size: 13px;
-            letter-spacing: 0.05em;
+            color: #9a8f87;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
             cursor: pointer;
             transition: color 0.3s;
             position: relative;
+            text-transform: uppercase;
         }
 
         nav a:hover,
         nav a.active {
-            color: #c97878;
+            color: #6b3e47;
         }
 
         nav a.active::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 0;
             right: 0;
             height: 1px;
-            background: #c97878;
+            background: #6b3e47;
         }
 
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: #b8b0a4;
-            font-size: 20px;
+            color: #9a8f87;
+            font-size: 1.5rem;
             cursor: pointer;
         }
 
+        /* Орнаментальные разделители */
+        .ornament {
+            text-align: center;
+            margin: 35px 0;
+            font-size: 1.3rem;
+            color: #6b3e47;
+            letter-spacing: 0.3em;
+        }
+
+        .frame-ornament {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 45px 0;
+            gap: 20px;
+        }
+
+        .frame-ornament::before,
+        .frame-ornament::after {
+            content: '◆';
+            color: #6b3e47;
+            font-size: 0.8rem;
+        }
+
+        .frame-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #6b3e47, transparent);
+            margin: 40px 0;
+        }
+
+        .geometric-accent {
+            position: relative;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 35px 0;
+        }
+
+        .geometric-accent::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #6b3e47 30%, #6b3e47 70%, transparent);
+            z-index: 1;
+        }
+
+        .geometric-accent::after {
+            content: '✦';
+            position: absolute;
+            color: #6b3e47;
+            font-size: 1.2rem;
+            z-index: 2;
+            background: #1a1a1a;
+            padding: 0 15px;
+        }
+
         .hero {
-            padding: 120px 0 100px;
-            border-bottom: 1px solid #3d2a2d;
+            padding: 100px 0;
+            text-align: center;
             position: relative;
         }
 
         .hero::before {
-            content: '';
+            content: '◆';
             position: absolute;
-            top: 50%;
-            right: -200px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(201, 120, 120, 0.15) 0%, rgba(201, 120, 120, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #6b3e47;
+            font-size: 1rem;
+            opacity: 0.6;
         }
 
-        .hero h1 {
-            margin-bottom: 30px;
-            font-weight: 300;
+        .hero::after {
+            content: '◆';
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #6b3e47;
+            font-size: 1rem;
+            opacity: 0.6;
         }
 
         .hero-subtitle {
-            font-size: 20px;
-            color: #b8b0a4;
+            font-size: 1.2rem;
+            color: #9a8f87;
             max-width: 700px;
-            font-weight: 300;
-            line-height: 1.8;
+            margin: 0 auto 25px;
+            line-height: 1.9;
         }
 
-        .divider {
-            height: 2px;
-            background: linear-gradient(90deg, #3d2a2d 0%, #c97878 50%, #3d2a2d 100%);
-            margin: 60px 0;
+        .hero .btn {
+            margin-top: 40px;
         }
 
         .services {
-            padding: 100px 0;
+            padding: 80px 0;
             position: relative;
-        }
-
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -200px;
-            width: 400px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(201, 120, 120, 0.1) 0%, rgba(201, 120, 120, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
         }
 
         .section-title {
-            font-size: 48px;
+            font-size: 2.2rem;
             margin-bottom: 60px;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-            color: #f5f2ed;
+            color: #e8ddd5;
             position: relative;
             z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: #6b3e47;
+            margin-top: 20px;
         }
 
         .expandable-menu {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             position: relative;
             z-index: 2;
         }
 
         .menu-button {
-            padding: 16px 32px;
+            padding: 14px 32px;
             background: transparent;
-            border: 2px solid #c97878;
-            color: #c97878;
-            font-size: 18px;
+            border: 1px solid #6b3e47;
+            color: #e8ddd5;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.4s;
-            font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 0.1em;
-            font-weight: 400;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.08em;
+            font-weight: 600;
             text-transform: uppercase;
-            border-radius: 50px;
             display: flex;
             align-items: center;
             gap: 12px;
+            border-radius: 50px;
         }
 
         .menu-button::after {
             content: '▼';
-            font-size: 12px;
+            font-size: 11px;
             transition: transform 0.4s;
         }
 
         .menu-button:hover {
-            background: #c97878;
-            color: #2a1f22;
+            background: #6b3e47;
+            color: #1a1a1a;
+            box-shadow: 0 8px 25px rgba(168, 82, 95, 0.2);
         }
 
         .menu-button.active {
-            background: #c97878;
-            color: #2a1f22;
+            background: #6b3e47;
+            color: #1a1a1a;
         }
 
         .menu-button.active::after {
@@ -240,18 +323,18 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease;
-            background: linear-gradient(135deg, rgba(201, 120, 120, 0.05) 0%, rgba(201, 120, 120, 0) 100%);
-            border: 1px solid #3d2a2d;
+            background: linear-gradient(135deg, rgba(168, 82, 95, 0.08) 0%, rgba(168, 82, 95, 0) 100%);
+            border: 1px solid #4a3f37;
             border-top: none;
         }
 
         .menu-content.active {
-            max-height: 3000px;
+            max-height: 5000px;
         }
 
         .menu-item {
-            padding: 30px 40px;
-            border-bottom: 1px solid #3d2a2d;
+            padding: 30px 35px;
+            border-bottom: 1px solid #4a3f37;
         }
 
         .menu-item:last-child {
@@ -259,70 +342,74 @@
         }
 
         .menu-item h4 {
-            font-size: 20px;
-            color: #f5f2ed;
-            margin-bottom: 10px;
-            font-weight: 400;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         .menu-item p {
-            font-size: 16px;
-            color: #b8b0a4;
-            line-height: 1.7;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #a8a096;
+            line-height: 1.85;
+            margin-bottom: 18px;
         }
 
-        .menu-item-meta {
+        .price-block {
+            background: linear-gradient(135deg, rgba(168, 82, 95, 0.12) 0%, rgba(168, 82, 95, 0) 100%);
+            border: 1px solid #4a3f37;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin: 22px 0;
             display: flex;
             justify-content: space-between;
-            margin: 15px 0;
-            font-size: 14px;
-            color: #8a7f75;
+            align-items: center;
         }
 
-        .menu-item-meta .price {
-            color: #c97878;
-            font-weight: 400;
+        .price-block-time {
+            font-size: 0.95rem;
+            color: #8a7f77;
+            letter-spacing: 0.05em;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .price-block-value {
+            font-size: 1.3rem;
+            color: #6b3e47;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            font-family: 'Crimson Text', serif;
         }
 
         .menu-item-btn {
             display: inline-block;
-            padding: 10px 24px;
-            background: transparent;
-            border: 1px solid #c97878;
-            color: #c97878;
+            margin-top: 16px;
+            padding: 11px 26px;
+            background: #6b3e47;
+            border: none;
+            color: #1a1a1a;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 0.9rem;
             letter-spacing: 0.08em;
             cursor: pointer;
             transition: all 0.3s;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
             text-transform: uppercase;
-            border-radius: 30px;
+            border-radius: 40px;
+            box-shadow: 0 5px 18px rgba(168, 82, 95, 0.2);
         }
 
         .menu-item-btn:hover {
-            background: #c97878;
-            color: #2a1f22;
+            box-shadow: 0 8px 28px rgba(168, 82, 95, 0.35);
+            transform: translateY(-2px);
         }
 
         .journal {
-            padding: 100px 0;
-            border-top: 1px solid #3d2a2d;
+            padding: 80px 0;
+            border-top: 1px solid #4a3f37;
             position: relative;
-        }
-
-        .journal::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: -200px;
-            width: 400px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(201, 120, 120, 0.1) 0%, rgba(201, 120, 120, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
         }
 
         .journal-posts {
@@ -332,170 +419,147 @@
         }
 
         .post-item {
-            padding: 40px 0;
-            border-bottom: 1px solid #382129;
+            padding: 35px 0;
+            border-bottom: 1px solid #4a3f37;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .post-item:hover {
             padding-left: 20px;
-            border-left: 2px solid #c97878;
+            border-left: 2px solid #6b3e47;
         }
 
         .post-date {
-            font-size: 12px;
-            color: #8a7f75;
+            font-size: 0.85rem;
+            color: #7a6f67;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             margin-bottom: 12px;
+            font-family: 'Cinzel', serif;
         }
 
         .post-item h3 {
             margin-bottom: 15px;
-            font-weight: 400;
             transition: color 0.3s;
-            color: #f5f2ed;
-            font-size: 24px;
+            font-size: 1.4rem;
         }
 
         .post-item:hover h3 {
-            color: #c97878;
+            color: #6b3e47;
         }
 
         .post-excerpt {
-            font-size: 16px;
-            color: #b8b0a4;
-            margin-bottom: 15px;
-            line-height: 1.8;
+            font-size: 1rem;
+            color: #a8a096;
+            margin-bottom: 16px;
+            line-height: 1.85;
         }
 
         .read-more {
-            font-size: 13px;
-            color: #c97878;
+            font-size: 0.9rem;
+            color: #6b3e47;
             text-decoration: none;
             letter-spacing: 0.05em;
             transition: color 0.3s;
-            font-weight: 400;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
         }
 
         .read-more:hover {
-            color: #f5f2ed;
+            color: #e8ddd5;
         }
 
         .about {
-            padding: 100px 0;
-            max-width: 900px;
+            padding: 80px 0;
+            max-width: 950px;
             position: relative;
             z-index: 1;
         }
 
         .about p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            line-height: 1.9;
-            color: #b8b0a4;
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+            line-height: 1.95;
+            color: #a8a096;
         }
 
         .about-subsection {
             margin-bottom: 50px;
+            padding-left: 30px;
+            border-left: 2px solid #6b3e47;
         }
 
         .about-subsection h3 {
-            margin-bottom: 20px;
-            color: #c97878;
-            font-weight: 400;
-            font-size: 28px;
-        }
-
-        .about-subsection p {
-            font-size: 18px;
+            margin-bottom: 16px;
+            color: #6b3e47;
+            font-size: 1.3rem;
         }
 
         .contact {
-            padding: 100px 0;
-            max-width: 900px;
+            padding: 80px 0;
+            max-width: 950px;
             position: relative;
             z-index: 1;
         }
 
         .contact-box {
-            border: 1px solid #3d2a2d;
+            border: 1px solid #6b3e47;
             padding: 50px;
-            background: linear-gradient(135deg, rgba(201, 120, 120, 0.08) 0%, rgba(201, 120, 120, 0) 100%);
-            margin-bottom: 80px;
+            background: linear-gradient(135deg, rgba(168, 82, 95, 0.1) 0%, rgba(168, 82, 95, 0) 100%);
+            margin-bottom: 70px;
             position: relative;
             overflow: hidden;
         }
 
-        .contact-box::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            right: -150px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(201, 120, 120, 0.1) 0%, rgba(201, 120, 120, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .contact-box-content {
-            position: relative;
-            z-index: 1;
-        }
-
         .contact-box h3 {
-            margin-bottom: 20px;
-            font-weight: 400;
-            color: #f5f2ed;
-            font-size: 28px;
+            margin-bottom: 18px;
+            font-size: 1.5rem;
         }
 
         .contact-box p {
             margin-bottom: 30px;
-            color: #b8b0a4;
-            line-height: 1.9;
-            font-size: 18px;
+            color: #a8a096;
+            line-height: 1.95;
+            font-size: 1.1rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 16px 40px;
-            background: transparent;
-            border: 2px solid #c97878;
-            color: #c97878;
+            padding: 13px 36px;
+            background: #6b3e47;
+            border: none;
+            color: #1a1a1a;
             text-decoration: none;
-            font-size: 16px;
-            letter-spacing: 0.1em;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
             cursor: pointer;
             transition: all 0.4s;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
             text-transform: uppercase;
             border-radius: 50px;
+            box-shadow: 0 6px 22px rgba(168, 82, 95, 0.25);
         }
 
         .btn:hover {
-            background: #c97878;
-            color: #2a1f22;
+            box-shadow: 0 10px 35px rgba(168, 82, 95, 0.4);
+            transform: translateY(-3px);
         }
 
         .faq {
-            margin-top: 80px;
+            margin-top: 70px;
         }
 
         .faq h3 {
             margin-bottom: 40px;
-            font-weight: 400;
-            color: #f5f2ed;
-            font-size: 28px;
+            font-size: 1.5rem;
         }
 
         .faq-item {
             margin-bottom: 40px;
             padding-bottom: 40px;
-            border-bottom: 1px solid #382129;
+            border-bottom: 1px solid #4a3f37;
         }
 
         .faq-item:last-child {
@@ -503,76 +567,66 @@
         }
 
         .faq-item h4 {
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: #f5f2ed;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            letter-spacing: 0.05em;
         }
 
         .faq-item p {
-            font-size: 16px;
-            color: #b8b0a4;
-            line-height: 1.8;
+            font-size: 1rem;
+            color: #a8a096;
+            line-height: 1.9;
         }
 
         footer {
-            border-top: 1px solid #3d2a2d;
-            padding: 80px 0 60px;
+            border-top: 1px solid #4a3f37;
+            padding: 70px 0 50px;
             position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            left: -200px;
-            width: 400px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(201, 120, 120, 0.08) 0%, rgba(201, 120, 120, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 80px;
-            margin-bottom: 80px;
+            gap: 70px;
+            margin-bottom: 60px;
             position: relative;
             z-index: 1;
         }
 
         .footer-col h4 {
-            font-size: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #8a7f75;
+            letter-spacing: 0.12em;
+            color: #7a6f67;
             margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .footer-col a,
         .footer-col p {
-            font-size: 15px;
-            color: #b8b0a4;
+            font-size: 0.95rem;
+            color: #9a8f87;
             text-decoration: none;
             margin-bottom: 12px;
             display: block;
             transition: color 0.3s;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .footer-col a:hover {
-            color: #c97878;
+            color: #6b3e47;
         }
 
         .footer-bottom {
-            border-top: 1px solid #3d2a2d;
+            border-top: 1px solid #4a3f37;
             padding-top: 40px;
-            font-size: 12px;
-            color: #8a7f75;
+            font-size: 0.85rem;
+            color: #7a6f67;
             text-align: center;
             position: relative;
             z-index: 1;
+            letter-spacing: 0.05em;
         }
 
         .page {
@@ -583,29 +637,31 @@
             display: block;
         }
 
-        @media (max-width: 1024px) {
-            .hero::before,
-            .services::before,
-            .journal::after,
-            .contact-box::before,
-            footer::before {
-                display: none;
-            }
-        }
-
         @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+
             .container {
                 padding: 0 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
             }
 
             nav {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 60px;
                 right: 20px;
-                background: #382129;
-                border: 1px solid #3d2a2d;
+                background: #2a2a2a;
+                border: 1px solid #4a3f37;
                 padding: 20px;
                 gap: 15px;
                 z-index: 500;
@@ -619,27 +675,17 @@
                 display: block;
             }
 
-            h1 {
-                font-size: 48px;
-            }
-
-            h2 {
-                font-size: 32px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-            .hero {
-                padding: 80px 0 60px;
-            }
-
+            .hero,
             .services,
             .journal,
             .about,
             .contact {
-                padding: 60px 0;
+                padding: 50px 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
     </style>
@@ -647,7 +693,11 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo" onclick="showPage('home')">ЛЛ</div>
+            <div class="logo" onclick="showPage('home')" style="display: flex; align-items: center; gap: 12px;">
+                <span>L</span>
+                <span class="logo-symbol">∞</span>
+                <span style="transform: scaleX(-1); display: inline-block; font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.15em; color: #e8ddd5;">L</span>
+            </div>
             <nav id="nav">
                 <a onclick="showPage('home')" class="nav-link active">Главная</a>
                 <a onclick="showPage('services')" class="nav-link">Услуги</a>
@@ -663,11 +713,17 @@
         <section class="hero">
             <div class="container">
                 <h1>Лина Лóнская</h1>
-                <p class="hero-subtitle">Астролог, таролог. Традиционное колдовство и оккультизм. 7 лет практики.</p>
-                <p class="hero-subtitle" style="margin-top: 20px;">Консультации для тех, кто хочет лучше понимать свои внутренние процессы, отношения, циклы и повторяющиеся сценарии в жизни.</p>
-                <a href="https://t.me/llonskay" target="_blank" class="btn" style="margin-top: 40px;">Записаться на консультацию</a>
+                <p class="hero-subtitle">Астролог, таролог. Традиционное колдовство и оккультизм.</p>
+                <p class="hero-subtitle">7 лет практики.</p>
+                <div class="geometric-accent"></div>
+                <p class="hero-subtitle">Консультации для тех, кто хочет лучше понимать свои внутренние процессы, отношения, циклы и повторяющиеся сценарии в жизни.</p>
+                <a href="https://t.me/llonskay" target="_blank" class="btn">Записаться на консультацию</a>
             </div>
         </section>
+
+        <div class="container">
+            <div class="frame-line"></div>
+        </div>
 
         <section class="services">
             <div class="container">
@@ -679,62 +735,88 @@
                         <div class="menu-item">
                             <h4>Базовая консультация</h4>
                             <p>Краткий разбор натальной карты. Включает общую характеристику личности, ключевые черты характера, сильные и слабые стороны, основные энергии карты.</p>
-                            <div class="menu-item-meta">
-                                <span>15-20 минут</span>
-                                <span class="price">₽2000 / $30</span>
+                            <div class="price-block">
+                                <span class="price-block-time">15–20 минут</span>
+                                <span class="price-block-value">₽2000 / $30</span>
                             </div>
                             <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
                         </div>
                         <div class="menu-item">
                             <h4>Углублённая консультация</h4>
                             <p>Более детальный разбор натальной карты. Разбор ключевых положений карты, важные аспекты между планетами, внутренние противоречия и потенциал.</p>
-                            <div class="menu-item-meta">
-                                <span>20-40 минут</span>
-                                <span class="price">₽4000 / $55</span>
+                            <div class="price-block">
+                                <span class="price-block-time">20–40 минут</span>
+                                <span class="price-block-value">₽4000 / $55</span>
                             </div>
                             <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
                         </div>
                         <div class="menu-item">
                             <h4>Детальный разбор карты</h4>
                             <p>Полный анализ натальной карты. Детальный разбор личности, анализ всех основных сфер, таланты и потенциал реализации, кармические и психологические темы.</p>
-                            <div class="menu-item-meta">
-                                <span>60+ минут</span>
-                                <span class="price">₽6000 / $85</span>
+                            <div class="price-block">
+                                <span class="price-block-time">60+ минут</span>
+                                <span class="price-block-value">₽6000 / $85</span>
                             </div>
                             <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
                         </div>
                     </div>
                 </div>
 
+                <div class="ornament">✦ ◆ ✦</div>
+
                 <div class="expandable-menu">
                     <button class="menu-button" onclick="toggleMenu('tarot')">Таро</button>
                     <div id="tarot" class="menu-content">
                         <div class="menu-item">
-                            <h4>Консультация на таро</h4>
+                            <h4>Консультация на таро — 30 минут</h4>
                             <p>Таро-сессия для разбора сложных ситуаций, внутренних конфликтов, отношений и важных решений.</p>
-                            <div class="menu-item-meta">
-                                <span>30–90 минут</span>
-                                <span class="price">₽2500–7000</span>
+                            <div class="price-block">
+                                <span class="price-block-time">30 минут</span>
+                                <span class="price-block-value">₽2500 / $35</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Консультация на таро — 60 минут</h4>
+                            <p>Углублённая таро-сессия для разбора сложных ситуаций, внутренних конфликтов, отношений и важных решений.</p>
+                            <div class="price-block">
+                                <span class="price-block-time">60 минут</span>
+                                <span class="price-block-value">₽5000 / $70</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Консультация на таро — 90 минут</h4>
+                            <p>Полная таро-сессия для глубокого разбора сложных ситуаций, внутренних конфликтов, отношений и важных решений.</p>
+                            <div class="price-block">
+                                <span class="price-block-time">90 минут</span>
+                                <span class="price-block-value">₽7000 / $95</span>
                             </div>
                             <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
                         </div>
                         <div class="menu-item">
                             <h4>Составные расклады</h4>
-                            <p>Если вам не подходит ни один стандартный расклад, вы можете составить вопросы самостоятельно или попросить помощь.</p>
-                            <div class="menu-item-meta">
-                                <span>5–15 вопросов</span>
-                                <span class="price">₽2000–7000</span>
+                            <p>Если вам не подходит ни один стандартный расклад, вы можете составить вопросы самостоятельно или попросить меня помочь с этим.</p>
+                            <div style="margin: 22px 0; color: #a8a096; font-size: 1rem;">
+                                <p style="margin: 10px 0;">• 5 вопросов: <span style="color: #6b3e47; font-weight: 600;">₽2000 / $30</span></p>
+                                <p style="margin: 10px 0;">• 10 вопросов: <span style="color: #6b3e47; font-weight: 600;">₽4000 / $55</span></p>
+                                <p style="margin: 10px 0;">• 15 вопросов: <span style="color: #6b3e47; font-weight: 600;">₽7000 / $95</span></p>
                             </div>
                             <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
                         </div>
                         <div class="menu-item">
                             <h4>Обучение таро</h4>
                             <p>Обучение по системам Уэйта и Кроули на выбор. 10+ занятий по 1.5 часа. После обучения все записи, комментарии и методички остаются у вас.</p>
-                            <div class="menu-item-meta">
-                                <span>1 занятие 1.5ч</span>
-                                <span class="price">₽3500</span>
+                            <div class="price-block">
+                                <span class="price-block-time">1 занятие 1.5ч</span>
+                                <span class="price-block-value">₽3500</span>
                             </div>
                             <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Подборка готовых раскладов</h4>
+                            <p>Архив готовых раскладов, анализов и разборов на различные темы. Найти материалы можно в моём Telegram.</p>
+                            <a href="https://t.me/hexandhush/53" target="_blank" class="menu-item-btn">Смотреть подборку</a>
                         </div>
                     </div>
                 </div>
@@ -742,7 +824,7 @@
         </section>
 
         <div class="container">
-            <div class="divider"></div>
+            <div class="frame-line"></div>
         </div>
 
         <section class="journal">
@@ -750,7 +832,7 @@
                 <h2 class="section-title">Статьи и разборы</h2>
                 <div class="journal-posts">
                     <div class="post-item">
-                        <div class="post-date">Архив статей</div>
+                        <div class="post-date">Архив</div>
                         <h3>Аналитические материалы и разборы</h3>
                         <p class="post-excerpt">Здесь будут публиковаться заметки о циклах, архетипах, отношениях и личной трансформации. Пока архив пополняется — найти готовые разборы и материалы можно в моём Telegram.</p>
                         <a href="https://t.me/hexandhush/53" target="_blank" class="read-more">Готовые разборы в Telegram →</a>
@@ -763,7 +845,7 @@
     <div id="about" class="page">
         <section class="about">
             <div class="container">
-                <h2 class="section-title" style="margin-bottom: 50px;">Обо мне</h2>
+                <h2 class="section-title">Обо мне</h2>
                 <p>Я работаю с астрологией, таро и другими мантическими системами как с инструментами анализа и понимания человека. Меня интересуют не столько «предсказания», сколько внутренние механизмы: эмоциональные паттерны, бессознательные реакции, повторяющиеся жизненные циклы, темы близости, власти, желания и идентичности.</p>
                 <p>Мой подход сформировался на стыке эзотерики, рационализма и многолетнего опыта работы с людьми. Я предпочитаю глубокую и честную интерпретацию вместо мистического спектакля и универсальных ответов «на все случаи жизни».</p>
 
@@ -776,11 +858,6 @@
                     <h3>Таро</h3>
                     <p>В своей практике я использую таро как символический язык и инструмент исследования бессознательного. Наибольшее влияние на мой подход оказали система Тота и символическая интерпретация карт.</p>
                 </div>
-
-                <div class="about-subsection">
-                    <h3>Опыт</h3>
-                    <p>7 лет практики в области астрологии и таро. Работаю с людьми, ищущими глубокое понимание себя и своих жизненных циклов.</p>
-                </div>
             </div>
         </section>
     </div>
@@ -788,10 +865,10 @@
     <div id="journal" class="page">
         <section class="journal">
             <div class="container">
-                <h2 class="section-title" style="margin-bottom: 60px;">Статьи и разборы</h2>
+                <h2 class="section-title">Статьи и разборы</h2>
                 <div class="journal-posts">
                     <div class="post-item">
-                        <div class="post-date">Архив статей</div>
+                        <div class="post-date">Архив</div>
                         <h3>Аналитические материалы и разборы</h3>
                         <p class="post-excerpt">Здесь будут публиковаться заметки о циклах, архетипах, отношениях и личной трансформации. Пока архив пополняется — найти готовые разборы и материалы можно в моём Telegram.</p>
                         <a href="https://t.me/hexandhush/53" target="_blank" class="read-more">Готовые разборы в Telegram →</a>
@@ -804,14 +881,12 @@
     <div id="contact" class="page">
         <section class="contact">
             <div class="container">
-                <h2 class="section-title" style="margin-bottom: 60px;">Контакты</h2>
+                <h2 class="section-title">Контакты</h2>
 
                 <div class="contact-box">
-                    <div class="contact-box-content">
-                        <h3>Записаться на консультацию</h3>
-                        <p>Если вам близок мой подход, вы можете написать мне в Telegram для записи или уточнения деталей консультации.</p>
-                        <a href="https://t.me/llonskay" class="btn" target="_blank">Написать в Telegram</a>
-                    </div>
+                    <h3>Записаться на консультацию</h3>
+                    <p>Если вам близок мой подход, вы можете написать мне в Telegram для записи или уточнения деталей консультации.</p>
+                    <a href="https://t.me/llonskay" class="btn" target="_blank">Написать в Telegram</a>
                 </div>
 
                 <div class="faq">

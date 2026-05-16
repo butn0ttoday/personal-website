@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lina Lonskaya — Psychological Astrology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #2a1f22;
+            color: #e5d9d5;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        h1 {
+            font-size: 72px;
+            line-height: 1.1;
+            color: #f5f2ed;
+        }
+
+        h2 {
+            font-size: 48px;
+            line-height: 1.2;
+            color: #f5f2ed;
+        }
+
+        h3 {
+            font-size: 24px;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #3d2a2d;
+            position: sticky;
+            top: 0;
+            background: rgba(42, 31, 34, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 16px;
+            letter-spacing: 0.1em;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s;
+            color: #f5f2ed;
+        }
+
+        .logo:hover {
+            color: #c97878;
+        }
+
+        nav {
+            display: flex;
+            gap: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #b8b0a4;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #c97878;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #c97878;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #b8b0a4;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 0 100px;
+            border-bottom: 1px solid #3d2a2d;
+        }
+
+        .hero h1 {
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #b8b0a4;
+            max-width: 700px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, #3d2a2d 0%, #c97878 50%, #3d2a2d 100%);
+            margin: 60px 0;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 60px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            color: #f5f2ed;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .service-card {
+            padding: 40px;
+            border: 1px solid #3d2a2d;
+            background: linear-gradient(135deg, rgba(201, 120, 120, 0.06) 0%, rgba(201, 120, 120, 0) 100%);
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(201, 120, 120, 0.12) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover {
+            border-color: #c97878;
+            box-shadow: 0 0 20px rgba(201, 120, 120, 0.15);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #f5f2ed;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #b8b0a4;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .service-card .meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #8a7f75;
+            letter-spacing: 0.05em;
+        }
+
+        .service-card .meta .burgundy {
+            color: #c97878;
+        }
+
+        /* Journal Section */
+        .journal {
+            padding: 100px 0;
+            border-top: 1px solid #3d2a2d;
+        }
+
+        .journal-posts {
+            max-width: 900px;
+        }
+
+        .post-item {
+            padding: 40px 0;
+            border-bottom: 1px solid #382129;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .post-item:hover {
+            padding-left: 20px;
+            border-left: 2px solid #c97878;
+        }
+
+        .post-date {
+            font-size: 11px;
+            color: #8a7f75;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .post-item h3 {
+            margin-bottom: 15px;
+            font-weight: 400;
+            transition: color 0.3s;
+            color: #f5f2ed;
+        }
+
+        .post-item:hover h3 {
+            color: #c97878;
+        }
+
+        .post-excerpt {
+            font-size: 14px;
+            color: #b8b0a4;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            font-size: 12px;
+            color: #c97878;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #f5f2ed;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            max-width: 900px;
+        }
+
+        .about p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.9;
+            color: #b8b0a4;
+        }
+
+        .about-subsection {
+            margin-bottom: 50px;
+        }
+
+        .about-subsection h3 {
+            margin-bottom: 20px;
+            color: #c97878;
+            font-weight: 400;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            max-width: 900px;
+        }
+
+        .contact-box {
+            border: 1px solid #3d2a2d;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(168, 92, 92, 0.06) 0%, rgba(168, 92, 92, 0) 100%);
+            margin-bottom: 80px;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #f5f2ed;
+        }
+
+        .contact-box p {
+            margin-bottom: 30px;
+            color: #b8b0a4;
+            line-height: 1.9;
+        }
+
+        /* CTA Button */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            border: 1px solid #c97878;
+            color: #c97878;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .btn:hover {
+            background: #c97878;
+            color: #252219;
+        }
+
+        /* FAQ */
+        .faq {
+            margin-top: 80px;
+        }
+
+        .faq h3 {
+            margin-bottom: 40px;
+            font-weight: 400;
+            color: #f5f2ed;
+        }
+
+        .faq-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #382129;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #f5f2ed;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: #b8b0a4;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #3d2a2d;
+            padding: 80px 0 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer-col h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8a7f75;
+            margin-bottom: 25px;
+        }
+
+        .footer-col a,
+        .footer-col p {
+            font-size: 14px;
+            color: #b8b0a4;
+            text-decoration: none;
+            margin-bottom: 12px;
+            display: block;
+            transition: color 0.3s;
+            font-weight: 300;
+        }
+
+        .footer-col a:hover {
+            color: #c97878;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3d2a2d;
+            padding-top: 40px;
+            font-size: 11px;
+            color: #8a7f75;
+            text-align: center;
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Mobile */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #382129;
+                border: 1px solid #3d2a2d;
+                padding: 20px;
+                gap: 15px;
+                z-index: 500;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .services,
+            .journal,
+            .about,
+            .contact {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo" onclick="showPage('home')">LINA LONSKAYA</div>
+            <nav id="nav">
+                <a onclick="showPage('home')" class="nav-link active">Home</a>
+                <a onclick="showPage('services')" class="nav-link">Services</a>
+                <a onclick="showPage('about')" class="nav-link">About</a>
+                <a onclick="showPage('journal')" class="nav-link">Journal</a>
+                <a onclick="showPage('contact')" class="nav-link">Contact</a>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <h1>PSYCHOLOGICAL<br>ASTROLOGY &<br>SYMBOLIC WORK</h1>
+                <p class="hero-subtitle">[Hero subtitle / value proposition]</p>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">[Services Section]</h2>
+                <div class="services-grid">
+                    <div class="service-card" onclick="showPage('services')">
+                        <div class="service-card-content">
+                            <h3>[Service 1]</h3>
+                            <p>[Description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card" onclick="showPage('services')">
+                        <div class="service-card-content">
+                            <h3>[Service 2]</h3>
+                            <p>[Description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card" onclick="showPage('services')">
+                        <div class="service-card-content">
+                            <h3>[Service 3]</h3>
+                            <p>[Description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card" onclick="showPage('services')">
+                        <div class="service-card-content">
+                            <h3>[Service 4]</h3>
+                            <p>[Description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="divider"></div>
+        </div>
+
+        <!-- Journal Preview -->
+        <section class="journal">
+            <div class="container">
+                <h2 class="section-title">[Journal]</h2>
+                <div class="journal-posts">
+                    <div class="post-item">
+                        <div class="post-date">[Date] · [Category]</div>
+                        <h3>[Post Title]</h3>
+                        <p class="post-excerpt">[Post excerpt]</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-date">[Date] · [Category]</div>
+                        <h3>[Post Title]</h3>
+                        <p class="post-excerpt">[Post excerpt]</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-date">[Date] · [Category]</div>
+                        <h3>[Post Title]</h3>
+                        <p class="post-excerpt">[Post excerpt]</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <section class="services" style="padding-top: 60px;">
+            <div class="container">
+                <h2 class="section-title">[Services]</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-content">
+                            <h3>[Service 1 Title]</h3>
+                            <p>[Service description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                            <p style="margin-top: 20px; font-size: 13px; color: #8a7f75;">[What's included]</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-content">
+                            <h3>[Service 2 Title]</h3>
+                            <p>[Service description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                            <p style="margin-top: 20px; font-size: 13px; color: #8a7f75;">[What's included]</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-content">
+                            <h3>[Service 3 Title]</h3>
+                            <p>[Service description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                            <p style="margin-top: 20px; font-size: 13px; color: #8a7f75;">[What's included]</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-content">
+                            <h3>[Service 4 Title]</h3>
+                            <p>[Service description]</p>
+                            <div class="meta">
+                                <span>[Duration]</span>
+                                <span class="burgundy">[Price]</span>
+                            </div>
+                            <p style="margin-top: 20px; font-size: 13px; color: #8a7f75;">[What's included]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 50px;">[About]</h2>
+                <p>[Opening paragraph about your practice]</p>
+                <p>[Main philosophy or approach]</p>
+
+                <div class="about-subsection">
+                    <h3>[Subsection 1: e.g. "Approach to Astrology"]</h3>
+                    <p>[Explain your methodology]</p>
+                </div>
+
+                <div class="about-subsection">
+                    <h3>[Subsection 2: e.g. "Tarot Practice"]</h3>
+                    <p>[Explain your tarot approach]</p>
+                </div>
+
+                <div class="about-subsection">
+                    <h3>[Subsection 3: e.g. "Experience"]</h3>
+                    <p>[Your credentials or experience]</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JOURNAL PAGE -->
+    <div id="journal" class="page">
+        <section class="journal">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 60px;">[Journal Title]</h2>
+                <div class="journal-posts">
+                    <div class="post-item">
+                        <div class="post-date">[Date] · [Category]</div>
+                        <h3>[Post Title 1]</h3>
+                        <p class="post-excerpt">[Post excerpt or opening]</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-date">[Date] · [Category]</div>
+                        <h3>[Post Title 2]</h3>
+                        <p class="post-excerpt">[Post excerpt or opening]</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-date">[Date] · [Category]</div>
+                        <h3>[Post Title 3]</h3>
+                        <p class="post-excerpt">[Post excerpt or opening]</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-date">[Date] · [Category]</div>
+                        <h3>[Post Title 4]</h3>
+                        <p class="post-excerpt">[Post excerpt or opening]</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 60px;">[Contact]</h2>
+
+                <div class="contact-box">
+                    <h3>[CTA Heading]</h3>
+                    <p>[CTA paragraph explaining how to get in touch]</p>
+                    <a href="https://t.me/your_username" class="btn" target="_blank">[Button Text]</a>
+                </div>
+
+                <div class="faq">
+                    <h3>[FAQ Section Title]</h3>
+                    <div class="faq-item">
+                        <h4>[Question 1]</h4>
+                        <p>[Answer 1]</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>[Question 2]</h4>
+                        <p>[Answer 2]</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>[Question 3]</h4>
+                        <p>[Answer 3]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <a onclick="showPage('home')">Home</a>
+                    <a onclick="showPage('services')">Services</a>
+                    <a onclick="showPage('about')">About</a>
+                    <a onclick="showPage('journal')">Journal</a>
+                    <a onclick="showPage('contact')">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="https://t.me/your_username" target="_blank">[Your Telegram]</a>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <p>[Site tagline or brief description]</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Lina Lonskaya. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.add('active');
+            }
+
+            document.getElementById('nav').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

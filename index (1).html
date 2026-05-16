@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лина Лóнская — Астролог, таролог</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #2a1f22;
+            color: #e5d9d5;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        h1 {
+            font-size: 72px;
+            line-height: 1.1;
+            color: #f5f2ed;
+        }
+
+        h2 {
+            font-size: 48px;
+            line-height: 1.2;
+            color: #f5f2ed;
+        }
+
+        h3 {
+            font-size: 28px;
+            line-height: 1.3;
+            color: #f5f2ed;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #3d2a2d;
+            position: sticky;
+            top: 0;
+            background: rgba(42, 31, 34, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 16px;
+            letter-spacing: 0.1em;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s;
+            color: #f5f2ed;
+        }
+
+        .logo:hover {
+            color: #c97878;
+        }
+
+        nav {
+            display: flex;
+            gap: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #b8b0a4;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #c97878;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #c97878;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #b8b0a4;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .hero {
+            padding: 120px 0 100px;
+            border-bottom: 1px solid #3d2a2d;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -200px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 120, 120, 0.15) 0%, rgba(201, 120, 120, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #b8b0a4;
+            max-width: 700px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, #3d2a2d 0%, #c97878 50%, #3d2a2d 100%);
+            margin: 60px 0;
+        }
+
+        .services {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -200px;
+            width: 400px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 120, 120, 0.1) 0%, rgba(201, 120, 120, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 60px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            color: #f5f2ed;
+            position: relative;
+            z-index: 1;
+        }
+
+        .expandable-menu {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-button {
+            padding: 16px 32px;
+            background: transparent;
+            border: 2px solid #c97878;
+            color: #c97878;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.1em;
+            font-weight: 400;
+            text-transform: uppercase;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-button::after {
+            content: '▼';
+            font-size: 12px;
+            transition: transform 0.4s;
+        }
+
+        .menu-button:hover {
+            background: #c97878;
+            color: #2a1f22;
+        }
+
+        .menu-button.active {
+            background: #c97878;
+            color: #2a1f22;
+        }
+
+        .menu-button.active::after {
+            transform: rotate(180deg);
+        }
+
+        .menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: linear-gradient(135deg, rgba(201, 120, 120, 0.05) 0%, rgba(201, 120, 120, 0) 100%);
+            border: 1px solid #3d2a2d;
+            border-top: none;
+        }
+
+        .menu-content.active {
+            max-height: 3000px;
+        }
+
+        .menu-item {
+            padding: 30px 40px;
+            border-bottom: 1px solid #3d2a2d;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h4 {
+            font-size: 20px;
+            color: #f5f2ed;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .menu-item p {
+            font-size: 16px;
+            color: #b8b0a4;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .menu-item-meta {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #8a7f75;
+        }
+
+        .menu-item-meta .price {
+            color: #c97878;
+            font-weight: 400;
+        }
+
+        .menu-item-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: transparent;
+            border: 1px solid #c97878;
+            color: #c97878;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            border-radius: 30px;
+        }
+
+        .menu-item-btn:hover {
+            background: #c97878;
+            color: #2a1f22;
+        }
+
+        .journal {
+            padding: 100px 0;
+            border-top: 1px solid #3d2a2d;
+            position: relative;
+        }
+
+        .journal::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -200px;
+            width: 400px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 120, 120, 0.1) 0%, rgba(201, 120, 120, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .journal-posts {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .post-item {
+            padding: 40px 0;
+            border-bottom: 1px solid #382129;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .post-item:hover {
+            padding-left: 20px;
+            border-left: 2px solid #c97878;
+        }
+
+        .post-date {
+            font-size: 12px;
+            color: #8a7f75;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .post-item h3 {
+            margin-bottom: 15px;
+            font-weight: 400;
+            transition: color 0.3s;
+            color: #f5f2ed;
+            font-size: 24px;
+        }
+
+        .post-item:hover h3 {
+            color: #c97878;
+        }
+
+        .post-excerpt {
+            font-size: 16px;
+            color: #b8b0a4;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            font-size: 13px;
+            color: #c97878;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
+
+        .read-more:hover {
+            color: #f5f2ed;
+        }
+
+        .about {
+            padding: 100px 0;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.9;
+            color: #b8b0a4;
+        }
+
+        .about-subsection {
+            margin-bottom: 50px;
+        }
+
+        .about-subsection h3 {
+            margin-bottom: 20px;
+            color: #c97878;
+            font-weight: 400;
+            font-size: 28px;
+        }
+
+        .about-subsection p {
+            font-size: 18px;
+        }
+
+        .contact {
+            padding: 100px 0;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-box {
+            border: 1px solid #3d2a2d;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(201, 120, 120, 0.08) 0%, rgba(201, 120, 120, 0) 100%);
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 120, 120, 0.1) 0%, rgba(201, 120, 120, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-box-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #f5f2ed;
+            font-size: 28px;
+        }
+
+        .contact-box p {
+            margin-bottom: 30px;
+            color: #b8b0a4;
+            line-height: 1.9;
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: transparent;
+            border: 2px solid #c97878;
+            color: #c97878;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            border-radius: 50px;
+        }
+
+        .btn:hover {
+            background: #c97878;
+            color: #2a1f22;
+        }
+
+        .faq {
+            margin-top: 80px;
+        }
+
+        .faq h3 {
+            margin-bottom: 40px;
+            font-weight: 400;
+            color: #f5f2ed;
+            font-size: 28px;
+        }
+
+        .faq-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #382129;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #f5f2ed;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            color: #b8b0a4;
+            line-height: 1.8;
+        }
+
+        footer {
+            border-top: 1px solid #3d2a2d;
+            padding: 80px 0 60px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: -200px;
+            width: 400px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 120, 120, 0.08) 0%, rgba(201, 120, 120, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 80px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8a7f75;
+            margin-bottom: 25px;
+        }
+
+        .footer-col a,
+        .footer-col p {
+            font-size: 15px;
+            color: #b8b0a4;
+            text-decoration: none;
+            margin-bottom: 12px;
+            display: block;
+            transition: color 0.3s;
+            font-weight: 300;
+        }
+
+        .footer-col a:hover {
+            color: #c97878;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3d2a2d;
+            padding-top: 40px;
+            font-size: 12px;
+            color: #8a7f75;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .hero::before,
+            .services::before,
+            .journal::after,
+            .contact-box::before,
+            footer::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #382129;
+                border: 1px solid #3d2a2d;
+                padding: 20px;
+                gap: 15px;
+                z-index: 500;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .services,
+            .journal,
+            .about,
+            .contact {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo" onclick="showPage('home')">ЛЛ</div>
+            <nav id="nav">
+                <a onclick="showPage('home')" class="nav-link active">Главная</a>
+                <a onclick="showPage('services')" class="nav-link">Услуги</a>
+                <a onclick="showPage('about')" class="nav-link">Обо мне</a>
+                <a onclick="showPage('journal')" class="nav-link">Статьи</a>
+                <a onclick="showPage('contact')" class="nav-link">Контакты</a>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <h1>Лина Лóнская</h1>
+                <p class="hero-subtitle">Астролог, таролог. Традиционное колдовство и оккультизм. 7 лет практики.</p>
+                <p class="hero-subtitle" style="margin-top: 20px;">Консультации для тех, кто хочет лучше понимать свои внутренние процессы, отношения, циклы и повторяющиеся сценарии в жизни.</p>
+                <a href="https://t.me/llonskay" target="_blank" class="btn" style="margin-top: 40px;">Записаться на консультацию</a>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Услуги</h2>
+                
+                <div class="expandable-menu">
+                    <button class="menu-button" onclick="toggleMenu('astro')">Астрология</button>
+                    <div id="astro" class="menu-content">
+                        <div class="menu-item">
+                            <h4>Базовая консультация</h4>
+                            <p>Краткий разбор натальной карты. Включает общую характеристику личности, ключевые черты характера, сильные и слабые стороны, основные энергии карты.</p>
+                            <div class="menu-item-meta">
+                                <span>15-20 минут</span>
+                                <span class="price">₽2000 / $30</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Углублённая консультация</h4>
+                            <p>Более детальный разбор натальной карты. Разбор ключевых положений карты, важные аспекты между планетами, внутренние противоречия и потенциал.</p>
+                            <div class="menu-item-meta">
+                                <span>20-40 минут</span>
+                                <span class="price">₽4000 / $55</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Детальный разбор карты</h4>
+                            <p>Полный анализ натальной карты. Детальный разбор личности, анализ всех основных сфер, таланты и потенциал реализации, кармические и психологические темы.</p>
+                            <div class="menu-item-meta">
+                                <span>60+ минут</span>
+                                <span class="price">₽6000 / $85</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expandable-menu">
+                    <button class="menu-button" onclick="toggleMenu('tarot')">Таро</button>
+                    <div id="tarot" class="menu-content">
+                        <div class="menu-item">
+                            <h4>Консультация на таро</h4>
+                            <p>Таро-сессия для разбора сложных ситуаций, внутренних конфликтов, отношений и важных решений.</p>
+                            <div class="menu-item-meta">
+                                <span>30–90 минут</span>
+                                <span class="price">₽2500–7000</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Составные расклады</h4>
+                            <p>Если вам не подходит ни один стандартный расклад, вы можете составить вопросы самостоятельно или попросить помощь.</p>
+                            <div class="menu-item-meta">
+                                <span>5–15 вопросов</span>
+                                <span class="price">₽2000–7000</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                        <div class="menu-item">
+                            <h4>Обучение таро</h4>
+                            <p>Обучение по системам Уэйта и Кроули на выбор. 10+ занятий по 1.5 часа. После обучения все записи, комментарии и методички остаются у вас.</p>
+                            <div class="menu-item-meta">
+                                <span>1 занятие 1.5ч</span>
+                                <span class="price">₽3500</span>
+                            </div>
+                            <a href="https://t.me/llonskay" target="_blank" class="menu-item-btn">Записаться</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="divider"></div>
+        </div>
+
+        <section class="journal">
+            <div class="container">
+                <h2 class="section-title">Статьи и разборы</h2>
+                <div class="journal-posts">
+                    <div class="post-item">
+                        <div class="post-date">Архив статей</div>
+                        <h3>Аналитические материалы и разборы</h3>
+                        <p class="post-excerpt">Здесь будут публиковаться заметки о циклах, архетипах, отношениях и личной трансформации. Пока архив пополняется — найти готовые разборы и материалы можно в моём Telegram.</p>
+                        <a href="https://t.me/hexandhush/53" target="_blank" class="read-more">Готовые разборы в Telegram →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="about" class="page">
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 50px;">Обо мне</h2>
+                <p>Я работаю с астрологией, таро и другими мантическими системами как с инструментами анализа и понимания человека. Меня интересуют не столько «предсказания», сколько внутренние механизмы: эмоциональные паттерны, бессознательные реакции, повторяющиеся жизненные циклы, темы близости, власти, желания и идентичности.</p>
+                <p>Мой подход сформировался на стыке эзотерики, рационализма и многолетнего опыта работы с людьми. Я предпочитаю глубокую и честную интерпретацию вместо мистического спектакля и универсальных ответов «на все случаи жизни».</p>
+
+                <div class="about-subsection">
+                    <h3>Астрология</h3>
+                    <p>Я работаю в рамках западной астрологии. Основной фокус — натальные карты, синастрии, внутренние конфликты и психологическая динамика личности.</p>
+                </div>
+
+                <div class="about-subsection">
+                    <h3>Таро</h3>
+                    <p>В своей практике я использую таро как символический язык и инструмент исследования бессознательного. Наибольшее влияние на мой подход оказали система Тота и символическая интерпретация карт.</p>
+                </div>
+
+                <div class="about-subsection">
+                    <h3>Опыт</h3>
+                    <p>7 лет практики в области астрологии и таро. Работаю с людьми, ищущими глубокое понимание себя и своих жизненных циклов.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="journal" class="page">
+        <section class="journal">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 60px;">Статьи и разборы</h2>
+                <div class="journal-posts">
+                    <div class="post-item">
+                        <div class="post-date">Архив статей</div>
+                        <h3>Аналитические материалы и разборы</h3>
+                        <p class="post-excerpt">Здесь будут публиковаться заметки о циклах, архетипах, отношениях и личной трансформации. Пока архив пополняется — найти готовые разборы и материалы можно в моём Telegram.</p>
+                        <a href="https://t.me/hexandhush/53" target="_blank" class="read-more">Готовые разборы в Telegram →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="contact" class="page">
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 60px;">Контакты</h2>
+
+                <div class="contact-box">
+                    <div class="contact-box-content">
+                        <h3>Записаться на консультацию</h3>
+                        <p>Если вам близок мой подход, вы можете написать мне в Telegram для записи или уточнения деталей консультации.</p>
+                        <a href="https://t.me/llonskay" class="btn" target="_blank">Написать в Telegram</a>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <h3>Вопросы и ответы</h3>
+                    <div class="faq-item">
+                        <h4>Нужны ли точные данные рождения?</h4>
+                        <p>Для полноценной астрологической консультации желательно знать точное время рождения. Если время рождения неизвестно, то можно пройти через процедуру ректификации — она входит в стоимость консультации.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Вы предсказываете будущее?</h4>
+                        <p>Мой подход скорее про понимание процессов и закономерностей, чем про фатальные предсказания. Астрология и таро для меня — инструменты осознания, а не жестко заданной судьбы.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Можно ли записать консультацию?</h4>
+                        <p>Да, при желании консультацию можно записать на диктофон для личного использования. Голосовые сообщения остаются у вас навсегда, я не удаляю диалоги.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <a onclick="showPage('home')">Главная</a>
+                    <a onclick="showPage('services')">Услуги</a>
+                    <a onclick="showPage('about')">Обо мне</a>
+                    <a onclick="showPage('journal')">Статьи</a>
+                    <a onclick="showPage('contact')">Контакты</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="https://t.me/llonskay" target="_blank">Telegram</a>
+                </div>
+                <div class="footer-col">
+                    <h4>О практике</h4>
+                    <p>Астрология, таро, оккультизм.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Лина Лóнская. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.add('active');
+            }
+
+            document.getElementById('nav').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            const button = event.target.closest('.menu-button');
+            
+            menu.classList.toggle('active');
+            button.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

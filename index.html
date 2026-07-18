@@ -891,6 +891,37 @@
         }
 
 
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            max-width: 960px;
+        }
+
+        .journal-card {
+            display: block;
+            border: 1px solid var(--hairline);
+            border-radius: 14px;
+            padding: 32px 30px;
+            background: var(--bg-raised);
+            text-decoration: none;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .journal-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .journal-card h3 { color: var(--ink); }
+
+        .journal-card .read-more { display: inline-block; margin-top: 6px; }
+
+        @media (max-width: 768px) {
+            .journal-grid { grid-template-columns: 1fr; }
+        }
+
         .journal-links {
             display: flex;
             gap: 16px;
@@ -1677,17 +1708,130 @@
             <div class="container">
                 <div class="section-no">05 — Архив</div>
                 <h2 class="section-title">Статьи и разборы</h2>
-                <div class="journal-posts">
-                    <div class="post-item">
-                        <div class="post-date">Архив</div>
-                        <h3>Аналитические материалы и разборы</h3>
-                        <p class="post-excerpt">Здесь будут публиковаться заметки о циклах, архетипах, отношениях и личной трансформации. Пока архив пополняется — найти готовые разборы и материалы можно в моём Telegram.</p>
-                        <a href="https://t.me/hexandhush/53" target="_blank" class="read-more">Готовые разборы в Telegram →</a>
-                        <div class="journal-links">
-                            <a href="https://t.me/askthevoid_bot" target="_blank" class="menu-item-btn">Анонимный вопрос · @askthevoid_bot</a>
-                            <a href="https://orbisastro.com/" target="_blank" class="menu-item-btn">Мой астропроцессор · ORBIS</a>
-                        </div>
-                    </div>
+                <div class="journal-grid">
+                    <!-- ═══════════════════════════════════════════════
+                         ОБРАЗЕЦ КАРТОЧКИ СТАТЬИ — как добавить новую:
+                         1. Скопируй файл articles/_template.html под новым
+                            именем, например articles/moya-statya.html
+                         2. Заполни в нём заголовок, дату и текст
+                         3. Скопируй блок ниже (от <a до </a>), вставь
+                            рядом, поменяй ссылку, дату, заголовок и анонс
+                         Новые карточки ставь СВЕРХУ — свежее выше.
+                    <a href="files/moya-statya.html" class="journal-card">
+                        <div class="post-date">Январь 2026</div>
+                        <h3>Название статьи</h3>
+                        <p class="post-excerpt">Один-два предложения анонса — о чём материал и зачем его читать.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                         ═══════════════════════════════════════════════ -->
+
+                    <a href="files/sola-busca.html" class="journal-card">
+                        <div class="post-date">Таро · История</div>
+                        <h3>Sola Busca: колода, с которой началось всё</h3>
+                        <p class="post-excerpt">Старейшая полная колода таро в мире — и как Уэйт списал у неё главное новшество.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/arkan-dyavol.html" class="journal-card">
+                        <div class="post-date">Таро</div>
+                        <h3>Аркан XV. Дьявол</h3>
+                        <p class="post-excerpt">Почему все боятся пятнадцатого аркана — и что он на самом деле говорит о вашей воле.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/pro-privoroty.html" class="journal-card">
+                        <div class="post-date">Колдовство</div>
+                        <h3>Про привороты</h3>
+                        <p class="post-excerpt">Можно ли приворожить человека — и какова настоящая цена вопроса.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/razbor-karty-epshteina.html" class="journal-card">
+                        <div class="post-date">Астрология</div>
+                        <h3>Мини-разбор натальной карты Эпштейна</h3>
+                        <p class="post-excerpt">Пограничное Солнце, тау-квадрат и перст судьбы: что видно в космограмме.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/prosmotr-tretjih-lic.html" class="journal-card">
+                        <div class="post-date">Таро · Этика</div>
+                        <h3>Просмотр третьих лиц</h3>
+                        <p class="post-excerpt">Гадость и мерзость, в которую нельзя лезть — или обычная часть практики?</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/emocionalnaya-vovlechennost.html" class="journal-card">
+                        <div class="post-date">Таро</div>
+                        <h3>Эмоциональная вовлечённость таролога</h3>
+                        <p class="post-excerpt">Как тревожность специалиста превращает расклад в самосбывающееся пророчество.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/perehodnye-sostoyaniya.html" class="journal-card">
+                        <div class="post-date">Колдовство</div>
+                        <h3>Переходные состояния и сглазы</h3>
+                        <p class="post-excerpt">Почему в день рождения всё идёт наперекосяк — эзотерическое объяснение.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/chistka-doma.html" class="journal-card">
+                        <div class="post-date">Практика</div>
+                        <h3>Как я провожу чистку дома</h3>
+                        <p class="post-excerpt">Полынь, соль и техника безопасности: глубокая чистка помещения по шагам.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/sol-v-praktike.html" class="journal-card">
+                        <div class="post-date">Практика</div>
+                        <h3>Соль в практике</h3>
+                        <p class="post-excerpt">Универсальный компонент очищения: три способа использовать соль в быту.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/korol-kubkov.html" class="journal-card">
+                        <div class="post-date">Таро</div>
+                        <h3>Король кубков: что за зверь?</h3>
+                        <p class="post-excerpt">Придворная карта с двумя лицами: эмпат — и кое-кто похуже в плохих сочетаниях.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/klient-i-tarolog.html" class="journal-card">
+                        <div class="post-date">Таро · Этика</div>
+                        <h3>Отношения клиент — таролог</h3>
+                        <p class="post-excerpt">Четыре критерия выбора специалиста и почему границы важнее компетенций.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/svoj-tarolog.html" class="journal-card">
+                        <div class="post-date">Таро</div>
+                        <h3>Нужен ли «свой» таролог?</h3>
+                        <p class="post-excerpt">Один специалист на все вопросы или под каждую сферу — свой.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/dvazhdy-ob-odnom.html" class="journal-card">
+                        <div class="post-date">Таро</div>
+                        <h3>Можно ли спрашивать карты дважды об одном?</h3>
+                        <p class="post-excerpt">Да — но с правильным интервалом. Почему 3–4 недели, а не неделя.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/bez-zaprosa.html" class="journal-card">
+                        <div class="post-date">Таро</div>
+                        <h3>«Посмотрите что-нибудь»: без запроса</h3>
+                        <p class="post-excerpt">Что происходит, когда человек приходит гадать без конкретного вопроса.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/pervaya-koloda.html" class="journal-card">
+                        <div class="post-date">Таро</div>
+                        <h3>Какую колоду выбрать первой?</h3>
+                        <p class="post-excerpt">Хобби или системное изучение: два пути и почему база — всё-таки Уэйт.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/astrologia-s-chego-nachat.html" class="journal-card">
+                        <div class="post-date">Астрология</div>
+                        <h3>С чего начать путь в астрологии</h3>
+                        <p class="post-excerpt">Фундамент, курсы и базовый список литературы для входа.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                    <a href="files/knigi-po-taro-uejta.html" class="journal-card">
+                        <div class="post-date">Таро · Литература</div>
+                        <h3>Мой топ книг по таро Уэйта</h3>
+                        <p class="post-excerpt">Три книги, с которых стоит начинать изучение символизма и трактовок.</p>
+                        <span class="read-more">Читать →</span>
+                    </a>
+                </div>
+
+                <div class="journal-links">
+                    <a href="https://t.me/askthevoid_bot" target="_blank" class="menu-item-btn">Анонимный вопрос · @askthevoid_bot</a>
+                    <a href="https://orbisastro.com/" target="_blank" class="menu-item-btn">Мой астропроцессор · ORBIS</a>
                 </div>
             </div>
         </section>
